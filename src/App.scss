@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500&display=swap");
+$font: "Kumbh Sans";
+
+$violet: #5964e0;
+$light-violet: #939bf4;
+$very-dark-blue: #19202d;
+$midnight: #121721;
+$white: #ffffff;
+$light-grey: #f4f6f8;
+$grey: #9daec2;
+$dark-grey: #6e8098;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $font;
+	transition: all 350ms ease;
+}
+
+.App {
+	background-color: $light-grey;
+	padding-bottom: 3.75rem;
+}
+.App.dark {
+	background-color: $midnight;
+}
+
+header {
+	background-image: url(../public/assets/mobile/bg-pattern-header.svg);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 1.5rem 4.5rem;
+}
+
+.header__switch-and-icons {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.header__switch {
+	background-color: #fff;
+	width: 3rem;
+	height: 1.5rem;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.header__switch-circle {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: $violet;
+}
+
+.search-bar {
+	position: relative;
+	top: -40px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	margin: 0 1.5rem;
+	border-radius: 6px;
+}
+
+.search-bar__input {
+	width: 100%;
+	margin-right: auto;
+	border: 0;
+	padding: 0.5rem;
+	font-size: 1rem;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.search-bar__filter {
+	padding-right: 1.5rem;
+}
+
+.search-bar__search {
+	padding: 14px;
+	background-color: $violet;
+	border-radius: 5px;
+}
+
+.card-container {
+	display: grid;
+	gap: 49px;
+	padding: 1.5rem;
+}
+
+.card {
+	background-color: $white;
+	padding: 0 2rem 2rem;
+	position: relative;
+	&__logo-container {
+		width: 50px;
+		height: 50px;
+		display: grid;
+		place-items: center;
+		border-radius: 15px;
+		position: relative;
+		top: -25px;
+	}
+	& h1 {
+		font-size: 1.25rem;
+	}
+	& p {
+		color: $dark-grey;
+		font-weight: 300;
+	}
+	&__flex {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+		& p:nth-of-type(2) {
+			font-size: 1.5rem;
+		}
+	}
+
+	& small {
+		color: $violet;
+		display: block;
+		padding-top: 2.75rem;
+	}
+}
+
+.card.dark {
+	background-color: $very-dark-blue;
+	& h1 {
+		color: white;
+	}
+	& p {
+		color: $grey;
+	}
+}
+
+.load-more {
+	padding: 1rem 30px;
+	font-size: 1rem;
+	color: white;
+	background-color: $violet;
+	border: 0;
+	border-radius: 5px;
+	display: block;
+	margin: 0.5rem auto 0;
+	cursor: pointer;
+}
