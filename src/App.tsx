@@ -2,13 +2,16 @@ import "./App.css";
 import data from "./data.json";
 
 import { useState, useContext } from "react";
+import { Routes, Route } from "react-router";
 import { ThemeContext } from "./themeContext";
 
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SearchBarLarge from "./components/SearchBarLarge";
 import Jobs from "./components/Jobs";
-import LoadMore from "./components/LoadMore";
+import LoadMoreBtn from "./components/LoadMoreBtn";
+import JobDetail from "./routes/JobDetail";
+
 export type IJob = {
 	id: number;
 	company: string;
@@ -40,9 +43,26 @@ function App() {
 		<div className={`App ${theme}`}>
 			<Header />
 			<SearchBar />
-			<SearchBarLarge />
-			<Jobs jobData={jobData} loadMore={loadMore} />
-			{!loadMore && <LoadMore setLoadMore={setLoadMore} />}
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<SearchBarLarge />
+							<Jobs jobData={jobData} loadMore={loadMore} />
+							{!loadMore && (
+								<LoadMoreBtn setLoadMore={setLoadMore} />
+							)}
+						</>
+					}
+				></Route>
+				{jobData.map((job) => (
+					<Route
+						path={`/${job.id}`}
+						element={<JobDetail job={job} />}
+					></Route>
+				))}
+			</Routes>
 		</div>
 	);
 }

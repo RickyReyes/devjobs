@@ -32,7 +32,7 @@ const SearchBarLarge = () => {
 			</div>
 			<div>
 				<input type="checkbox" name="full-time" />
-				<label className={theme} for="full-time">
+				<label className={theme} htmlFor="full-time">
 					Full Time
 				</label>
 				<button className="btn">Search</button>

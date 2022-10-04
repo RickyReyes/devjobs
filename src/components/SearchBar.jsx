@@ -1,8 +1,11 @@
+import { ThemeContext } from "../themeContext";
+import { useContext } from "react";
 const SearchBar = () => {
+	const { theme } = useContext(ThemeContext);
 	return (
-		<div className="search-bar">
+		<div className={`search-bar ${theme}`}>
 			<input
-				className="search-bar__input"
+				className={`search-bar__input ${theme}`}
 				type="text"
 				placeholder="Filter by title..."
 			/>

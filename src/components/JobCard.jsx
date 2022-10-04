@@ -23,10 +23,10 @@ const JobCard = ({ job }) => {
 	return (
 		<div className={`card ${theme}`}>
 			<div
-				className="card__logo-container"
+				className="logo-container"
 				style={{ backgroundColor: logoBackground }}
 			>
-				<img src={logo} className="card__logo" alt="YO" />
+				<img src={logo} className="logo" alt="YO" />
 			</div>
 			<div className="card__flex">
 				<p>{postedAt}</p>

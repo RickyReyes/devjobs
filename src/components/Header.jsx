@@ -6,7 +6,6 @@ const Header = () => {
 	function handleToggle() {
 		toggleTheme();
 	}
-	console.log(theme);
 	return (
 		<header>
 			<img src="./assets/desktop/logo.svg" alt="devjobs logo" />
