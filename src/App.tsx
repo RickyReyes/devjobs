@@ -6,6 +6,7 @@ import { ThemeContext } from "./themeContext";
 
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
+import SearchBarLarge from "./components/SearchBarLarge";
 import Jobs from "./components/Jobs";
 import LoadMore from "./components/LoadMore";
 export type IJob = {
@@ -39,6 +40,7 @@ function App() {
 		<div className={`App ${theme}`}>
 			<Header />
 			<SearchBar />
+			<SearchBarLarge />
 			<Jobs jobData={jobData} loadMore={loadMore} />
 			{!loadMore && <LoadMore setLoadMore={setLoadMore} />}
 		</div>
