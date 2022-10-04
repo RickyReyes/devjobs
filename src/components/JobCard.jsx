@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../themeContext";
+import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
 	const {
@@ -33,7 +34,13 @@ const JobCard = ({ job }) => {
 				<p>&#8226;</p>
 				<p>{contract}</p>
 			</div>
-			<h1>{position}</h1>
+
+			<h1>
+				<Link className={`card__position ${theme}`} to={`/${id}`}>
+					{position}
+				</Link>
+			</h1>
+
 			<p>{company}</p>
 			<small>{location}</small>
 		</div>

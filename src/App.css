@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500&display=swap");
+.btn {
+  padding: 1rem 30px;
+  font-size: 1rem;
+  color: white;
+  background-color: #5964e0;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+  margin: 0.5rem auto 0;
+  cursor: pointer;
+}
+
 *,
 *::before,
 *::after {
@@ -6,7 +18,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Kumbh Sans";
-  transition: all 350ms ease;
+  transition: background-color 350ms ease;
 }
 
 .App {
@@ -115,8 +127,15 @@ header {
   padding: 0 2rem 2rem;
   position: relative;
 }
-.card h1 {
+.card a {
   font-size: 1.25rem;
+  color: #121721;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .card a:hover {
+    color: #6e8098;
+  }
 }
 .card p {
   color: #6e8098;
@@ -146,26 +165,25 @@ header {
   color: #9daec2;
 }
 
-.btn {
-  padding: 1rem 30px;
-  font-size: 1rem;
-  color: white;
-  background-color: #5964e0;
-  border: 0;
-  border-radius: 5px;
-  display: block;
-  margin: 0.5rem auto 0;
-  cursor: pointer;
-}
-
 /* Detail Page */
 .detail-company {
   position: relative;
   background-color: white;
   margin: 1.5rem;
+  text-align: center;
+  padding: 0 2rem 2rem;
+}
+.detail-company h2 {
+  display: block;
 }
 .detail-company > * {
   margin: 0 auto;
+}
+.detail-company .btn {
+  margin-top: 1.5rem;
+  background-color: rgba(89, 100, 224, 0.1);
+  color: #5964e0;
+  padding: 1rem 1.25rem 0.75rem;
 }
 
 @media (min-width: 768px) {
