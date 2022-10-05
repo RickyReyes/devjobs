@@ -12,7 +12,9 @@ const DetailCompany = ({ job }) => {
 				<img className="logo" src={logo} alt="company logo" />
 			</div>
 			<h2 className="detail-company__name">{company}</h2>
-			<p>{company.toLowerCase().split(" ").join("")}.com</p>
+			<p className="detail-company__site">
+				{company.toLowerCase().split(" ").join("")}.com
+			</p>
 			<button className="btn">Company Site</button>
 		</div>
 	);

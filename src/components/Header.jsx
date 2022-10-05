@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../themeContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
@@ -8,7 +9,9 @@ const Header = () => {
 	}
 	return (
 		<header>
-			<img src="./assets/desktop/logo.svg" alt="devjobs logo" />
+			<Link to="/">
+				<img src="./assets/desktop/logo.svg" alt="devjobs logo" />
+			</Link>
 			<div className="header__switch-and-icons">
 				<img src="./assets/desktop/icon-sun.svg" alt="sun" />
 				<div

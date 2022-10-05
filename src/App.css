@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500&display=swap");
 .btn {
   padding: 1rem 30px;
   font-size: 1rem;
@@ -9,6 +9,11 @@
   display: block;
   margin: 0.5rem auto 0;
   cursor: pointer;
+}
+@media (hover: hover) {
+  .btn:hover {
+    background-color: #939bf4;
+  }
 }
 
 *,
@@ -23,7 +28,6 @@
 
 .App {
   background-color: #f4f6f8;
-  padding-bottom: 3.75rem;
 }
 
 .App.dark {
@@ -36,6 +40,10 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 1.5rem 4.5rem;
+}
+header a {
+  padding: 0;
+  margin: 0;
 }
 
 .header__switch-and-icons {
@@ -98,12 +106,19 @@ header {
 
 .search-bar__filter {
   padding-right: 1.5rem;
+  cursor: pointer;
 }
 
 .search-bar__search {
   padding: 14px;
   background-color: #5964e0;
   border-radius: 5px;
+}
+@media (hover: hover) {
+  .search-bar__search:hover {
+    background-color: #939bf4;
+    cursor: pointer;
+  }
 }
 
 .card-container {
@@ -126,6 +141,7 @@ header {
   background-color: #ffffff;
   padding: 0 2rem 2rem;
   position: relative;
+  border-radius: 6px;
 }
 .card a {
   font-size: 1.25rem;
@@ -134,6 +150,14 @@ header {
 }
 @media (hover: hover) {
   .card a:hover {
+    color: #6e8098;
+  }
+}
+.card .card__position.dark {
+  color: white;
+}
+@media (hover: hover) {
+  .card .card__position.dark:hover {
     color: #6e8098;
   }
 }
@@ -166,24 +190,106 @@ header {
 }
 
 /* Detail Page */
+/* Detail "Header" */
 .detail-company {
   position: relative;
   background-color: white;
   margin: 1.5rem;
   text-align: center;
   padding: 0 2rem 2rem;
+  border-radius: 6px;
+}
+.detail-company .logo-container {
+  margin: 0 auto;
+}
+.detail-company__name {
+  font-size: 1.25rem;
+}
+.detail-company__site {
+  color: #6e8098;
+  font-weight: 300;
 }
 .detail-company h2 {
   display: block;
-}
-.detail-company > * {
-  margin: 0 auto;
 }
 .detail-company .btn {
   margin-top: 1.5rem;
   background-color: rgba(89, 100, 224, 0.1);
   color: #5964e0;
   padding: 1rem 1.25rem 0.75rem;
+}
+@media (hover: hover) {
+  .detail-company .btn:hover {
+    background-color: rgba(89, 100, 224, 0.35);
+  }
+}
+
+/* Detail Main */
+.detail-main {
+  background-color: white;
+  margin: 1.5rem;
+  border-radius: 6px;
+  padding: 2.5rem 1.5rem;
+}
+.detail-main h2 {
+  font-size: 1.25rem;
+}
+.detail-main p,
+.detail-main li {
+  color: #6e8098;
+  font-weight: 300;
+  line-height: 26px;
+}
+.detail-main small {
+  font-weight: 600;
+  color: #5964e0;
+}
+.detail-main .btn {
+  width: 100%;
+  margin: 50px auto 2rem;
+}
+.detail-main h2:nth-of-type(2) {
+  padding: 66px 0 23px;
+}
+.detail-main ul,
+.detail-main ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.detail-main ul {
+  padding-top: 2.5rem;
+  list-style-type: none;
+}
+.detail-main li {
+  display: flex;
+}
+.detail-main h2:nth-of-type(3) {
+  padding: 40px 0 28px;
+}
+.detail-main ol {
+  list-style-type: none;
+  padding-top: 2rem;
+}
+.detail-main .bullet,
+.detail-main .number {
+  color: #5964e0;
+  font-weight: 500;
+}
+.detail-main .bullet {
+  font-size: 1.5rem;
+  vertical-align: center;
+}
+.detail-main .item {
+  padding-left: 28px;
+}
+
+.detail-footer {
+  background-color: white;
+  padding: 1.5rem;
+}
+.detail-footer .btn {
+  width: 100%;
 }
 
 @media (min-width: 768px) {

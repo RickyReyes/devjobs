@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500&display=swap");
 $font: "Kumbh Sans";
 
 $violet: #5964e0;
@@ -20,6 +20,11 @@ $dark-grey: #6e8098;
 	display: block;
 	margin: 0.5rem auto 0;
 	cursor: pointer;
+	@media (hover: hover) {
+		&:hover {
+			background-color: $light-violet;
+		}
+	}
 }
 
 .btn {
@@ -38,7 +43,6 @@ $dark-grey: #6e8098;
 
 .App {
 	background-color: $light-grey;
-	padding-bottom: 3.75rem;
 }
 .App.dark {
 	background-color: $midnight;
@@ -50,6 +54,10 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding: 2rem 1.5rem 4.5rem;
+	a {
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .header__switch-and-icons {
@@ -112,12 +120,19 @@ header {
 
 .search-bar__filter {
 	padding-right: 1.5rem;
+	cursor: pointer;
 }
 
 .search-bar__search {
 	padding: 14px;
 	background-color: $violet;
 	border-radius: 5px;
+	@media (hover: hover) {
+		&:hover {
+			background-color: $light-violet;
+			cursor: pointer;
+		}
+	}
 }
 
 .card-container {
@@ -140,6 +155,7 @@ header {
 	background-color: $white;
 	padding: 0 2rem 2rem;
 	position: relative;
+	border-radius: 6px;
 	a {
 		font-size: 1.25rem;
 		color: $midnight;
@@ -147,6 +163,17 @@ header {
 		@media (hover: hover) {
 			&:hover {
 				color: $dark-grey;
+			}
+		}
+	}
+
+	.card__position {
+		&.dark {
+			color: white;
+			@media (hover: hover) {
+				&:hover {
+					color: $dark-grey;
+				}
 			}
 		}
 	}
@@ -182,23 +209,106 @@ header {
 }
 
 /* Detail Page */
+/* Detail "Header" */
 .detail-company {
 	position: relative;
 	background-color: white;
 	margin: 1.5rem;
 	text-align: center;
 	padding: 0 2rem 2rem;
+	border-radius: 6px;
+	.logo-container {
+		margin: 0 auto;
+	}
+	&__name {
+		font-size: 1.25rem;
+	}
+	&__site {
+		color: $dark-grey;
+		font-weight: 300;
+	}
 	h2 {
 		display: block;
-	}
-	& > * {
-		margin: 0 auto;
 	}
 	.btn {
 		margin-top: 1.5rem;
 		background-color: rgba($violet, 0.1);
 		color: $violet;
 		padding: 1rem 1.25rem 0.75rem;
+		@media (hover: hover) {
+			&:hover {
+				background-color: rgba($violet, 0.35);
+			}
+		}
+	}
+}
+
+/* Detail Main */
+.detail-main {
+	background-color: white;
+	margin: 1.5rem;
+	border-radius: 6px;
+	padding: 2.5rem 1.5rem;
+	h2 {
+		font-size: 1.25rem;
+	}
+	p,
+	li {
+		color: $dark-grey;
+		font-weight: 300;
+		line-height: 26px;
+	}
+	small {
+		font-weight: 600;
+		color: $violet;
+	}
+	.btn {
+		width: 100%;
+		margin: 50px auto 2rem;
+	}
+	h2:nth-of-type(2) {
+		padding: 66px 0 23px;
+	}
+	ul,
+	ol {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	ul {
+		padding-top: 2.5rem;
+		list-style-type: none;
+	}
+	li {
+		display: flex;
+	}
+	h2:nth-of-type(3) {
+		padding: 40px 0 28px;
+	}
+	ol {
+		list-style-type: none;
+		padding-top: 2rem;
+	}
+	.bullet,
+	.number {
+		color: $violet;
+		font-weight: 500;
+	}
+
+	.bullet {
+		font-size: 1.5rem;
+		vertical-align: center;
+	}
+	.item {
+		padding-left: 28px;
+	}
+}
+
+.detail-footer {
+	background-color: white;
+	padding: 1.5rem;
+	.btn {
+		width: 100%;
 	}
 }
 
