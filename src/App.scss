@@ -20,6 +20,7 @@ $dark-grey: #6e8098;
 	display: block;
 	margin: 0.5rem auto 0;
 	cursor: pointer;
+	font-weight: 500;
 	@media (hover: hover) {
 		&:hover {
 			background-color: $light-violet;
@@ -209,6 +210,23 @@ header {
 }
 
 /* Detail Page */
+
+.job-detail {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	& > * {
+		max-width: 730px;
+	}
+}
+
+.job-detail.dark > * {
+	background-color: $very-dark-blue;
+	h2 {
+		color: white;
+	}
+}
+
 /* Detail "Header" */
 .detail-company {
 	position: relative;
@@ -217,6 +235,8 @@ header {
 	text-align: center;
 	padding: 0 2rem 2rem;
 	border-radius: 6px;
+	width: calc(100% - 3rem);
+
 	.logo-container {
 		margin: 0 auto;
 	}
@@ -229,6 +249,7 @@ header {
 	}
 	h2 {
 		display: block;
+		color: $very-dark-blue;
 	}
 	.btn {
 		margin-top: 1.5rem;
@@ -251,6 +272,7 @@ header {
 	padding: 2.5rem 1.5rem;
 	h2 {
 		font-size: 1.25rem;
+		color: $very-dark-blue;
 	}
 	p,
 	li {
@@ -266,7 +288,9 @@ header {
 		width: 100%;
 		margin: 50px auto 2rem;
 	}
-	h2:nth-of-type(2) {
+
+	h2:nth-of-type(2),
+	.requirements {
 		padding: 66px 0 23px;
 	}
 	ul,
@@ -307,6 +331,8 @@ header {
 .detail-footer {
 	background-color: white;
 	padding: 1.5rem;
+	width: 100%;
+	border-radius: 6px;
 	.btn {
 		width: 100%;
 	}
@@ -371,6 +397,63 @@ header {
 	}
 	.search-bar-large > *:nth-child(3) {
 		padding: 1rem;
+	}
+
+	/* detail - tablet */
+	.detail-company {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0 2.5rem 0 0;
+		text-align: left;
+		.logo-container {
+			width: 140px;
+			height: 140px;
+			margin: 0;
+			position: relative;
+			top: 0;
+			border-radius: 0 0 0 6px;
+			margin-right: 2.5rem;
+		}
+		.btn {
+			display: block;
+			margin: 0 0 0 auto;
+		}
+	}
+
+	.detail-main {
+		.tablet-flex {
+			display: flex;
+			align-items: center;
+			margin-bottom: 2.5rem;
+		}
+		.btn {
+			padding: 1rem 0;
+			margin: 0 0 0 auto;
+			width: 141px;
+			height: 48px;
+		}
+	}
+
+	.detail-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.btn {
+			width: auto;
+			margin: 0;
+		}
+		&__left {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			h2 {
+				color: $very-dark-blue;
+			}
+			p {
+				color: $dark-grey;
+			}
+		}
 	}
 }
 

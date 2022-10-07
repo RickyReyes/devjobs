@@ -9,6 +9,7 @@
   display: block;
   margin: 0.5rem auto 0;
   cursor: pointer;
+  font-weight: 500;
 }
 @media (hover: hover) {
   .btn:hover {
@@ -190,6 +191,22 @@ header a {
 }
 
 /* Detail Page */
+.job-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.job-detail > * {
+  max-width: 730px;
+}
+
+.job-detail.dark > * {
+  background-color: #19202d;
+}
+.job-detail.dark > * h2 {
+  color: white;
+}
+
 /* Detail "Header" */
 .detail-company {
   position: relative;
@@ -198,6 +215,7 @@ header a {
   text-align: center;
   padding: 0 2rem 2rem;
   border-radius: 6px;
+  width: calc(100% - 3rem);
 }
 .detail-company .logo-container {
   margin: 0 auto;
@@ -211,6 +229,7 @@ header a {
 }
 .detail-company h2 {
   display: block;
+  color: #19202d;
 }
 .detail-company .btn {
   margin-top: 1.5rem;
@@ -233,6 +252,7 @@ header a {
 }
 .detail-main h2 {
   font-size: 1.25rem;
+  color: #19202d;
 }
 .detail-main p,
 .detail-main li {
@@ -248,7 +268,8 @@ header a {
   width: 100%;
   margin: 50px auto 2rem;
 }
-.detail-main h2:nth-of-type(2) {
+.detail-main h2:nth-of-type(2),
+.detail-main .requirements {
   padding: 66px 0 23px;
 }
 .detail-main ul,
@@ -287,6 +308,8 @@ header a {
 .detail-footer {
   background-color: white;
   padding: 1.5rem;
+  width: 100%;
+  border-radius: 6px;
 }
 .detail-footer .btn {
   width: 100%;
@@ -347,6 +370,58 @@ header a {
   }
   .search-bar-large > *:nth-child(3) {
     padding: 1rem;
+  }
+  /* detail - tablet */
+  .detail-company {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 2.5rem 0 0;
+    text-align: left;
+  }
+  .detail-company .logo-container {
+    width: 140px;
+    height: 140px;
+    margin: 0;
+    position: relative;
+    top: 0;
+    border-radius: 0 0 0 6px;
+    margin-right: 2.5rem;
+  }
+  .detail-company .btn {
+    display: block;
+    margin: 0 0 0 auto;
+  }
+  .detail-main .tablet-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .detail-main .btn {
+    padding: 1rem 0;
+    margin: 0 0 0 auto;
+    width: 141px;
+    height: 48px;
+  }
+  .detail-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .detail-footer .btn {
+    width: auto;
+    margin: 0;
+  }
+  .detail-footer__left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .detail-footer__left h2 {
+    color: #19202d;
+  }
+  .detail-footer__left p {
+    color: #6e8098;
   }
 }
 @media (min-width: 1200px) {

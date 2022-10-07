@@ -11,16 +11,18 @@ const DetailMain = ({ job }) => {
 	} = job;
 	return (
 		<main className="detail-main">
-			<div className="card__flex">
-				<p>{postedAt}</p>
-				<p>&#8226;</p>
-				<p>{contract}</p>
+			<div className="tablet-flex">
+				<div className="tablet-flex__left">
+					<div className="card__flex">
+						<p>{postedAt}</p>
+						<p>&#8226;</p>
+						<p>{contract}</p>
+					</div>
+					<h2>{position}</h2>
+					<small>{location}</small>
+				</div>
+				<button className="btn">Apply Now</button>
 			</div>
-
-			<h2>{position}</h2>
-
-			<small>{location}</small>
-			<button className="btn">Apply Now</button>
 			<p>{description}</p>
 			<h2 className="requirements">Requirements</h2>
 			<p>{requirements.content}</p>
