@@ -10,6 +10,8 @@ import SearchBar from "./components/SearchBar";
 import SearchBarLarge from "./components/SearchBarLarge";
 import Jobs from "./components/Jobs";
 import LoadMoreBtn from "./components/LoadMoreBtn";
+import FilterModal from "./components/FilterModal";
+
 import JobDetail from "./routes/JobDetail";
 
 export type IJob = {
@@ -37,18 +39,27 @@ export type IJob = {
 function App() {
 	const [jobData, setJobData] = useState<IJob[]>(data);
 	const [loadMore, setLoadMore] = useState<boolean>(false);
+	const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
+
 	const { theme } = useContext(ThemeContext);
 
 	return (
-		<div className={`App ${theme}`}>
+		<div
+			className={`App ${theme}`}
+			// style={{ position: showFilterModal ? "fixed" : "static" }}
+		>
+			{showFilterModal && <FilterModal />}
 			<Header />
-			<SearchBar />
+			<SearchBar
+				showFilterModal={showFilterModal}
+				setShowFilterModal={setShowFilterModal}
+			/>
 			<Routes>
 				<Route
 					path="/"
 					element={
 						<>
-							<SearchBarLarge />
+							<SearchBarLarge filterModal={false} />
 							<Jobs jobData={jobData} loadMore={loadMore} />
 							{!loadMore && (
 								<LoadMoreBtn setLoadMore={setLoadMore} />

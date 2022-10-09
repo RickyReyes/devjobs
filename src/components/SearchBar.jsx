@@ -1,6 +1,6 @@
 import { ThemeContext } from "../themeContext";
 import { useContext } from "react";
-const SearchBar = () => {
+const SearchBar = ({ showFilterModal, setShowFilterModal }) => {
 	const { theme } = useContext(ThemeContext);
 	return (
 		<div className={`search-bar ${theme}`}>
@@ -10,6 +10,7 @@ const SearchBar = () => {
 				placeholder="Filter by title..."
 			/>
 			<img
+				onClick={() => setShowFilterModal(true)}
 				className="search-bar__icon search-bar__filter"
 				src="./assets/mobile/icon-filter.svg"
 				alt="filter icon"

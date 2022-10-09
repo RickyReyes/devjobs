@@ -90,6 +90,40 @@ header a {
   display: none;
 }
 
+.search-bar-large.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+.search-bar-large.modal > * {
+  width: 100%;
+}
+.search-bar-large.modal .filter-by-title {
+  display: none;
+}
+.search-bar-large.modal .filter-by-location {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem;
+}
+.search-bar-large.modal .full-time-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.search-bar-large.modal .full-time-search {
+  padding: 1.5rem 1.5rem 0;
+}
+.search-bar-large.modal .search-bar__input {
+  padding-left: 0;
+}
+.search-bar-large.modal .btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
 .search-bar__input {
   width: 100%;
   margin-right: auto;
@@ -196,7 +230,7 @@ header a {
   flex-direction: column;
   align-items: center;
 }
-.job-detail > * {
+.job-detail > *:not(.detail-footer) {
   max-width: 730px;
 }
 
@@ -308,11 +342,28 @@ header a {
 .detail-footer {
   background-color: white;
   padding: 1.5rem;
-  width: 100%;
   border-radius: 6px;
+  width: 100%;
+}
+.detail-footer h2 {
+  display: none;
+}
+.detail-footer p {
+  display: none;
 }
 .detail-footer .btn {
   width: 100%;
+}
+
+/* Filter Modal */
+.filter-modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  box-shadow: inset 1000px 1000px 1000px 1000px rgba(0, 0, 0, 0.6);
 }
 
 @media (min-width: 768px) {
@@ -408,6 +459,16 @@ header a {
     align-items: center;
     justify-content: space-between;
   }
+  .detail-footer h2,
+.detail-footer p {
+    display: block;
+  }
+  .detail-footer h2 {
+    color: #19202d;
+  }
+  .detail-footer p {
+    color: #6e8098;
+  }
   .detail-footer .btn {
     width: auto;
     margin: 0;
@@ -416,12 +477,6 @@ header a {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-  }
-  .detail-footer__left h2 {
-    color: #19202d;
-  }
-  .detail-footer__left p {
-    color: #6e8098;
   }
 }
 @media (min-width: 1200px) {
