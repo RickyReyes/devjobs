@@ -44,6 +44,7 @@ $dark-grey: #6e8098;
 
 .App {
 	background-color: $light-grey;
+	width: 100%;
 }
 .App.dark {
 	background-color: $midnight;
@@ -127,6 +128,7 @@ header {
 		align-items: center;
 		gap: 1rem;
 	}
+
 	.full-time-search {
 		padding: 1.5rem 1.5rem 0;
 	}

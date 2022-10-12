@@ -18,7 +18,6 @@ const JobCard = ({ job }) => {
 		requirements,
 		role,
 	} = job;
-	console.log(job);
 	const { theme } = useContext(ThemeContext);
 
 	return (

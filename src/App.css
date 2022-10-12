@@ -29,6 +29,7 @@
 
 .App {
   background-color: #f4f6f8;
+  width: 100%;
 }
 
 .App.dark {

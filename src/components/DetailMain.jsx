@@ -28,7 +28,7 @@ const DetailMain = ({ job }) => {
 			<p>{requirements.content}</p>
 			<ul>
 				{requirements.items.map((item) => (
-					<li>
+					<li key={item}>
 						<span className="bullet">&#8226;</span>{" "}
 						<span className="item">{item}</span>
 					</li>
@@ -38,7 +38,7 @@ const DetailMain = ({ job }) => {
 			<p>{role.content}</p>
 			<ol>
 				{role.items.map((item, id) => (
-					<li>
+					<li key={item}>
 						<span className="number">{id + 1}</span>
 						<div className="item">{item}</div>
 					</li>

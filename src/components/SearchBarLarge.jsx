@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../themeContext";
 
-const SearchBarLarge = ({ filterModal }) => {
+const SearchBarLarge = ({ filterModal, modalRef }) => {
 	const { theme } = useContext(ThemeContext);
+
 	return (
 		<div
+			ref={filterModal ? modalRef : null}
 			className={`search-bar search-bar-large ${theme} ${
 				filterModal ? "modal" : ""
 			}`}

@@ -1,10 +1,9 @@
-import React from "react";
 import SearchBarLarge from "./SearchBarLarge";
 
-const FilterModal = () => {
+const FilterModal = ({ modalRef }) => {
 	return (
 		<section className="filter-modal">
-			<SearchBarLarge filterModal={true} />
+			<SearchBarLarge modalRef={modalRef} filterModal={true} />
 		</section>
 	);
 };
