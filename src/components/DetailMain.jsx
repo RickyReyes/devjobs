@@ -2,12 +2,12 @@ const DetailMain = ({ job }) => {
 	const {
 		postedAt,
 		contract,
-		theme,
 		position,
 		description,
 		location,
 		requirements,
 		role,
+		apply,
 	} = job;
 	return (
 		<main className="detail-main">
@@ -19,9 +19,11 @@ const DetailMain = ({ job }) => {
 						<p>{contract}</p>
 					</div>
 					<h2>{position}</h2>
-					<small>{location}</small>
+					<small className="detail__location">{location}</small>
 				</div>
-				<button className="btn">Apply Now</button>
+				<a className="btn-container" href={apply} target="_blank">
+					<button className="btn">Apply Now</button>
+				</a>
 			</div>
 			<p>{description}</p>
 			<h2 className="requirements">Requirements</h2>

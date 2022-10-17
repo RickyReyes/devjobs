@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../themeContext";
 
-const SearchBarLarge = ({ filterModal, modalRef }) => {
-	const { theme } = useContext(ThemeContext);
+/* filterModal (param) is a boolean that is true if the SearchBarLarge is the one used for the filter modal, and false if is the one used on tablet screen size and larger.  */
 
+const SearchBarLarge = ({
+	filterData,
+	setFilterData,
+	filterModal,
+	modalRef,
+	handleSearch,
+	handleFilterDataChange,
+	setShowFilterModal,
+}) => {
+	const { theme } = useContext(ThemeContext);
 	return (
 		<div
 			ref={filterModal ? modalRef : null}
@@ -20,6 +29,10 @@ const SearchBarLarge = ({ filterModal, modalRef }) => {
 					/>
 				</svg>
 				<input
+					value={filterData.title}
+					onChange={(e) =>
+						handleFilterDataChange(e.target.value, "title")
+					}
 					className={`search-bar__input lg ${theme}`}
 					type="text"
 					placeholder="Filter by title..."
@@ -31,6 +44,10 @@ const SearchBarLarge = ({ filterModal, modalRef }) => {
 					alt="search icon"
 				/>
 				<input
+					value={filterData.location}
+					onChange={(e) =>
+						handleFilterDataChange(e.target.value, "location")
+					}
 					className={`search-bar__input lg ${theme}`}
 					type="text"
 					placeholder="Filter by location..."
@@ -38,12 +55,31 @@ const SearchBarLarge = ({ filterModal, modalRef }) => {
 			</div>
 			<div className="full-time-search">
 				<div className="full-time-container">
-					<input type="checkbox" name="full-time" />
+					<input
+						className="checkbox"
+						type="checkbox"
+						name="full-time"
+						checked={filterData.fullTime}
+						onChange={() => {
+							setFilterData((prevData) => ({
+								...prevData,
+								fullTime: !prevData.fullTime,
+							}));
+						}}
+					/>
 					<label className={theme} htmlFor="full-time">
 						Full Time
 					</label>
 				</div>
-				<button className="btn">Search</button>
+				<button
+					onClick={() => {
+						handleSearch();
+						setShowFilterModal(false);
+					}}
+					className="btn"
+				>
+					Search
+				</button>
 			</div>
 		</div>
 	);

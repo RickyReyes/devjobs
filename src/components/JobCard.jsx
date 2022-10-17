@@ -12,11 +12,6 @@ const JobCard = ({ job }) => {
 		postedAt,
 		contract,
 		location,
-		website,
-		apply,
-		description,
-		requirements,
-		role,
 	} = job;
 	const { theme } = useContext(ThemeContext);
 

@@ -1,5 +1,5 @@
 const DetailCompany = ({ job }) => {
-	const { logo, logoBackground, company } = job;
+	const { logo, logoBackground, company, website } = job;
 	return (
 		<div className="detail-company">
 			<div
@@ -14,7 +14,9 @@ const DetailCompany = ({ job }) => {
 					{company.toLowerCase().split(" ").join("")}.com
 				</p>
 			</div>
-			<button className="btn">Company Site</button>
+			<a className="btn-container" target="_blank" href={website}>
+				<button className="btn">Company Site</button>
+			</a>
 		</div>
 	);
 };

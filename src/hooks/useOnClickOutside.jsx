@@ -2,10 +2,13 @@ import { useEffect } from "react";
 export default function useOnClickOutside(modalRef, handler) {
 	useEffect(() => {
 		function listener(e) {
-			if (modalRef.current?.contains(e.target)) {
+			if (
+				modalRef.current?.contains(e.target)
+				// && e.target.localName !== "button"
+			) {
 				return;
 			}
-			handler(false);
+			handler();
 		}
 		document.body.addEventListener("mousedown", listener);
 		document.body.addEventListener("touchstart", listener);
@@ -13,5 +16,5 @@ export default function useOnClickOutside(modalRef, handler) {
 			document.removeEventListener("mousedown", listener);
 			document.removeEventListener("touchstart", listener);
 		};
-	}, [modalRef, handler]);
+	}, []);
 }

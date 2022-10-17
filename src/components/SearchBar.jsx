@@ -1,10 +1,19 @@
 import { ThemeContext } from "../themeContext";
 import { useContext } from "react";
-const SearchBar = ({ showFilterModal, setShowFilterModal }) => {
+const SearchBar = ({
+	filterData,
+	setShowFilterModal,
+	handleSearch,
+	handleFilterDataChange,
+}) => {
 	const { theme } = useContext(ThemeContext);
 	return (
 		<div className={`search-bar ${theme}`}>
 			<input
+				onChange={(e) =>
+					handleFilterDataChange(e.target.value, "title")
+				}
+				value={filterData.title}
 				className={`search-bar__input ${theme}`}
 				type="text"
 				placeholder="Filter by title..."
@@ -19,6 +28,7 @@ const SearchBar = ({ showFilterModal, setShowFilterModal }) => {
 				className="search-bar__icon search-bar__search"
 				src="./assets/desktop/icon-search.svg"
 				alt="search icon"
+				onClick={handleSearch}
 			/>
 		</div>
 	);

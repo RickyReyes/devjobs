@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;700&display=swap");
 $font: "Kumbh Sans";
 
 $violet: #5964e0;
@@ -32,6 +32,15 @@ $dark-grey: #6e8098;
 	@include btn;
 }
 
+a {
+	text-decoration: none;
+}
+
+.no-results {
+	text-align: center;
+	margin-top: -4rem;
+}
+
 *,
 *::before,
 *::after {
@@ -44,8 +53,11 @@ $dark-grey: #6e8098;
 
 .App {
 	background-color: $light-grey;
+	min-height: 100vh;
 	width: 100%;
+	padding-bottom: 3.75rem;
 }
+
 .App.dark {
 	background-color: $midnight;
 }
@@ -249,11 +261,11 @@ header {
 }
 
 /* Detail Page */
-
 .job-detail {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: -3.75rem;
 	& > *:not(.detail-footer) {
 		max-width: 730px;
 	}
@@ -308,10 +320,11 @@ header {
 	background-color: white;
 	margin: 1.5rem;
 	border-radius: 6px;
-	padding: 2.5rem 1.5rem;
+	padding: 2.5rem;
 	h2 {
 		font-size: 1.25rem;
 		color: $very-dark-blue;
+		margin-bottom: 0.5rem;
 	}
 	p,
 	li {
@@ -323,6 +336,11 @@ header {
 		font-weight: 600;
 		color: $violet;
 	}
+
+	.btn-container {
+		margin-left: auto;
+	}
+
 	.btn {
 		width: 100%;
 		margin: 50px auto 2rem;
@@ -365,6 +383,9 @@ header {
 	.item {
 		padding-left: 28px;
 	}
+	.detail__location {
+		font-weight: 500;
+	}
 }
 
 .detail-footer {
@@ -372,6 +393,8 @@ header {
 	padding: 1.5rem;
 	border-radius: 6px;
 	width: 100%;
+	position: relative;
+	bottom: -4rem;
 	h2 {
 		display: none;
 	}
@@ -381,6 +404,14 @@ header {
 	.btn {
 		width: 100%;
 	}
+}
+
+.detail-footer__inner {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	max-width: 730px;
+	margin: 0 auto;
 }
 
 /* Filter Modal */
@@ -396,6 +427,9 @@ header {
 }
 
 @media (min-width: 768px) {
+	.filter-modal {
+		display: none;
+	}
 	.card h1 {
 		padding-bottom: 1rem;
 	}
@@ -457,6 +491,10 @@ header {
 	}
 
 	/* detail - tablet */
+	.job-detail {
+		position: relative;
+		top: calc(-1.5rem - 40px);
+	}
 	.detail-company {
 		display: flex;
 		flex-direction: row;
@@ -471,6 +509,10 @@ header {
 			top: 0;
 			border-radius: 0 0 0 6px;
 			margin-right: 2.5rem;
+		}
+		.btn-container {
+			margin: 0 0 0 auto;
+			text-decoration: none;
 		}
 		.btn {
 			display: block;

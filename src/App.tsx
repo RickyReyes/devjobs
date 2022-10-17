@@ -1,7 +1,7 @@
 import "./App.css";
 import data from "./data.json";
 
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext, useRef } from "react";
 import { Routes, Route } from "react-router";
 import { ThemeContext } from "./themeContext";
 
@@ -39,43 +39,101 @@ export type IJob = {
 };
 
 function App() {
-	const [jobData] = useState<IJob[]>(data);
+	const [allJobs, setAllJobs] = useState<IJob[]>(data);
+	const [renderedJobs, setRenderedJobs] = useState<IJob[]>(allJobs);
 	const [loadMore, setLoadMore] = useState<boolean>(false);
-
 	const [showFilterModal, setShowFilterModal] = useState<boolean>(false);
-	const modalRef = useRef(null);
+	const [filterData, setFilterData] = useState({
+		title: "",
+		location: "",
+		fullTime: false,
+	});
+
 	const { theme } = useContext(ThemeContext);
 
-	useOnClickOutside(modalRef, setShowFilterModal);
+	const modalRef = useRef(null);
+
+	useOnClickOutside(modalRef, () => {
+		setShowFilterModal(false);
+	});
+
+	function handleSearch() {
+		setRenderedJobs(
+			allJobs
+				.filter((obj) =>
+					obj.position.toLowerCase().includes(filterData.title)
+				)
+				.filter((obj) =>
+					obj.location.toLowerCase().includes(filterData.location)
+				)
+				.filter((obj) =>
+					filterData.fullTime ? obj.contract === "Full Time" : obj
+				)
+		);
+	}
+
+	function handleFilterDataChange(value: string | boolean, name: string) {
+		setFilterData((prevData) => ({
+			...prevData,
+			[name]: typeof value === "string" ? value.toLowerCase() : value,
+		}));
+	}
+
+	console.log(renderedJobs.length);
 
 	return (
 		<div
 			className={`App ${theme}`}
 			style={{ position: showFilterModal ? "fixed" : "static" }}
 		>
-			{showFilterModal && <FilterModal modalRef={modalRef} />}
-			<Header />
+			{showFilterModal && (
+				<FilterModal
+					setFilterData={setFilterData}
+					filterData={filterData}
+					handleSearch={handleSearch}
+					handleFilterDataChange={handleFilterDataChange}
+					modalRef={modalRef}
+					setShowFilterModal={setShowFilterModal}
+				/>
+			)}
+			<Header
+				setLoadMore={setLoadMore}
+				setFilterData={setFilterData}
+				allJobs={allJobs}
+				setRenderedJobs={setRenderedJobs}
+			/>
 			<SearchBar
-				showFilterModal={showFilterModal}
+				filterData={filterData}
+				handleFilterDataChange={handleFilterDataChange}
+				handleSearch={handleSearch}
 				setShowFilterModal={setShowFilterModal}
 			/>
+
 			<Routes>
 				<Route
 					path="/"
 					element={
 						<>
 							<SearchBarLarge
+								filterData={filterData}
+								setFilterData={setFilterData}
+								handleSearch={handleSearch}
+								handleFilterDataChange={handleFilterDataChange}
 								modalRef={null}
 								filterModal={false}
+								setShowFilterModal={setShowFilterModal}
 							/>
-							<Jobs jobData={jobData} loadMore={loadMore} />
-							{!loadMore && (
+							<Jobs
+								renderedJobs={renderedJobs}
+								loadMore={loadMore}
+							/>
+							{!loadMore && renderedJobs.length > 12 && (
 								<LoadMoreBtn setLoadMore={setLoadMore} />
 							)}
 						</>
 					}
 				></Route>
-				{jobData.map((job) => (
+				{renderedJobs.map((job) => (
 					<Route
 						key={job.id}
 						path={`/${job.id}`}
@@ -83,6 +141,9 @@ function App() {
 					></Route>
 				))}
 			</Routes>
+			{renderedJobs.length === 0 && (
+				<div className="no-results">No results</div>
+			)}
 		</div>
 	);
 }
