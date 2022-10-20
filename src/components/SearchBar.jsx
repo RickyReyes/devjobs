@@ -5,14 +5,17 @@ const SearchBar = ({
 	setShowFilterModal,
 	handleSearch,
 	handleFilterDataChange,
+
+	handleEnter,
 }) => {
 	const { theme } = useContext(ThemeContext);
 	return (
 		<div className={`search-bar ${theme}`}>
 			<input
-				onChange={(e) =>
-					handleFilterDataChange(e.target.value, "title")
-				}
+				onChange={(e) => handleFilterDataChange(e, "title")}
+				onKeyPress={(e) => {
+					handleEnter(e, "title");
+				}}
 				value={filterData.title}
 				className={`search-bar__input ${theme}`}
 				type="text"

@@ -21,7 +21,12 @@ const DetailMain = ({ job }) => {
 					<h2>{position}</h2>
 					<small className="detail__location">{location}</small>
 				</div>
-				<a className="btn-container" href={apply} target="_blank">
+				<a
+					className="btn-container"
+					href={apply}
+					rel="noreferrer"
+					target="_blank"
+				>
 					<button className="btn">Apply Now</button>
 				</a>
 			</div>

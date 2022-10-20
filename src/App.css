@@ -25,6 +25,9 @@ a {
   text-align: center;
   margin-top: -4rem;
 }
+.no-results.dark {
+  color: white;
+}
 
 *,
 *::before,

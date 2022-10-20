@@ -4,6 +4,7 @@ const FilterModal = ({
 	modalRef,
 	handleFilterDataChange,
 	handleSearch,
+	handleEnter,
 	filterData,
 	setFilterData,
 	setShowFilterModal,
@@ -16,6 +17,7 @@ const FilterModal = ({
 				filterModal={true}
 				handleFilterDataChange={handleFilterDataChange}
 				handleSearch={handleSearch}
+				handleEnter={handleEnter}
 				filterData={filterData}
 				setShowFilterModal={setShowFilterModal}
 			/>

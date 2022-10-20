@@ -11,6 +11,7 @@ const SearchBarLarge = ({
 	handleSearch,
 	handleFilterDataChange,
 	setShowFilterModal,
+	handleEnter,
 }) => {
 	const { theme } = useContext(ThemeContext);
 	return (
@@ -30,9 +31,8 @@ const SearchBarLarge = ({
 				</svg>
 				<input
 					value={filterData.title}
-					onChange={(e) =>
-						handleFilterDataChange(e.target.value, "title")
-					}
+					onChange={(e) => handleFilterDataChange(e, "title")}
+					onKeyPress={(e) => handleEnter(e, "title")}
 					className={`search-bar__input lg ${theme}`}
 					type="text"
 					placeholder="Filter by title..."
@@ -45,9 +45,8 @@ const SearchBarLarge = ({
 				/>
 				<input
 					value={filterData.location}
-					onChange={(e) =>
-						handleFilterDataChange(e.target.value, "location")
-					}
+					onChange={(e) => handleFilterDataChange(e, "location")}
+					onKeyPress={(e) => handleEnter(e, "location")}
 					className={`search-bar__input lg ${theme}`}
 					type="text"
 					placeholder="Filter by location..."

@@ -61,10 +61,12 @@ function App() {
 		setRenderedJobs(
 			allJobs
 				.filter((obj) =>
-					obj.position.toLowerCase().includes(filterData.title)
+					obj.position.toLowerCase().includes(filterData.title.trim())
 				)
 				.filter((obj) =>
-					obj.location.toLowerCase().includes(filterData.location)
+					obj.location
+						.toLowerCase()
+						.includes(filterData.location.trim())
 				)
 				.filter((obj) =>
 					filterData.fullTime ? obj.contract === "Full Time" : obj
@@ -72,14 +74,31 @@ function App() {
 		);
 	}
 
-	function handleFilterDataChange(value: string | boolean, name: string) {
+	function handleFilterDataChange(
+		e: React.ChangeEvent<HTMLInputElement>,
+		name: string
+	) {
+		const { value } = e.target;
 		setFilterData((prevData) => ({
 			...prevData,
 			[name]: typeof value === "string" ? value.toLowerCase() : value,
 		}));
 	}
 
-	console.log(renderedJobs.length);
+	function handleEnter(
+		e: React.KeyboardEvent<HTMLInputElement>,
+		name: string
+	) {
+		const { value } = e.target as HTMLInputElement;
+		if (e.key === "Enter") {
+			setFilterData((prevData) => ({
+				...prevData,
+				[name]: value,
+			}));
+			handleSearch();
+			setShowFilterModal(false);
+		}
+	}
 
 	return (
 		<div
@@ -91,6 +110,7 @@ function App() {
 					setFilterData={setFilterData}
 					filterData={filterData}
 					handleSearch={handleSearch}
+					handleEnter={handleEnter}
 					handleFilterDataChange={handleFilterDataChange}
 					modalRef={modalRef}
 					setShowFilterModal={setShowFilterModal}
@@ -103,6 +123,7 @@ function App() {
 				setRenderedJobs={setRenderedJobs}
 			/>
 			<SearchBar
+				handleEnter={handleEnter}
 				filterData={filterData}
 				handleFilterDataChange={handleFilterDataChange}
 				handleSearch={handleSearch}
@@ -115,6 +136,7 @@ function App() {
 					element={
 						<>
 							<SearchBarLarge
+								handleEnter={handleEnter}
 								filterData={filterData}
 								setFilterData={setFilterData}
 								handleSearch={handleSearch}
@@ -142,7 +164,7 @@ function App() {
 				))}
 			</Routes>
 			{renderedJobs.length === 0 && (
-				<div className="no-results">No results</div>
+				<div className={`no-results ${theme}`}>No results</div>
 			)}
 		</div>
 	);

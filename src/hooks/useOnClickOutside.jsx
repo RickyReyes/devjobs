@@ -2,10 +2,7 @@ import { useEffect } from "react";
 export default function useOnClickOutside(modalRef, handler) {
 	useEffect(() => {
 		function listener(e) {
-			if (
-				modalRef.current?.contains(e.target)
-				// && e.target.localName !== "button"
-			) {
+			if (modalRef.current?.contains(e.target)) {
 				return;
 			}
 			handler();
