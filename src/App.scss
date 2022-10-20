@@ -11,6 +11,7 @@ $grey: #9daec2;
 $dark-grey: #6e8098;
 
 @mixin btn {
+	width: 100%;
 	padding: 1rem 30px;
 	font-size: 1rem;
 	color: white;
@@ -404,6 +405,10 @@ header {
 	p {
 		display: none;
 	}
+	a {
+		display: block;
+		width: 100%;
+	}
 	.btn {
 		width: 100%;
 	}
@@ -552,9 +557,12 @@ header {
 		p {
 			color: $dark-grey;
 		}
+		a {
+			width: auto;
+		}
 		.btn {
 			width: auto;
-			margin: 0;
+			margin: 0 0 0 auto;
 		}
 		&__left {
 			display: flex;

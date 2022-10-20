@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;700&display=swap");
 .btn {
+  width: 100%;
   padding: 1rem 30px;
   font-size: 1rem;
   color: white;
@@ -376,6 +377,10 @@ header a {
 .detail-footer p {
   display: none;
 }
+.detail-footer a {
+  display: block;
+  width: 100%;
+}
 .detail-footer .btn {
   width: 100%;
 }
@@ -513,9 +518,12 @@ header a {
   .detail-footer p {
     color: #6e8098;
   }
+  .detail-footer a {
+    width: auto;
+  }
   .detail-footer .btn {
     width: auto;
-    margin: 0;
+    margin: 0 0 0 auto;
   }
   .detail-footer__left {
     display: flex;

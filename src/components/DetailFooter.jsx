@@ -7,7 +7,7 @@ const DetailFooter = ({ job }) => {
 					<h2>{position}</h2>
 					<p>{company}</p>
 				</div>
-				<a href={apply} target="_blank">
+				<a href={apply} target="_blank" rel="noreferrer">
 					<button className="btn">Apply Now</button>
 				</a>
 			</div>

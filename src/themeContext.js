@@ -7,6 +7,7 @@ function ThemeContextProvider(props) {
 	function toggleTheme() {
 		setTheme((prev) => (prev === "light" ? "dark" : "light"));
 	}
+
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			{props.children}
